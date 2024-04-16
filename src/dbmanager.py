@@ -51,6 +51,6 @@ class DBManager:
         """Получает список всех вакансий, в названии которых содержатся переданные в метод слова, например python."""
         result = self.execute_(f"SELECT * "
                                f"FROM vacancies "
-                               f"WHERE vacancy_name LIKE '%инженер%'")
+                               f"WHERE vacancy_name LIKE '%разработчик%'")
         return result
 
