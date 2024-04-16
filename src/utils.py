@@ -56,7 +56,7 @@ def get_vacancies(employee_ids):
     return vacancies_list
 
 
-def create_database(database_name, params):
+def create_database(database_name: str, params: dict) -> None:
     """Создание БД и таблиц для сохранения данных о команиях и их вакансиях"""
     conn = psycopg2.connect(dbname='postgres', **params)
     conn.autocommit = True
@@ -65,6 +65,7 @@ def create_database(database_name, params):
     cur.execute(f'DROP DATABASE {database_name}')
     cur.execute(f'CREATE DATABASE {database_name}')
 
+    cur.close()
     conn.close()
 
 
