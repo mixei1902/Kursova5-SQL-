@@ -25,14 +25,14 @@ def get_company(employee_ids):
     """Получение списка компаний"""
     company_list = []
     for employee_id in employee_ids:
-        co_n = []
-        co_url = []
+        company_names = []
+        company_urls = []
         employee = get_url(employee_id)
         for company in employee:
-            co_n.append(company['employer']['name'])
-            co_url.append(company['employer']['url'])
-        unique_company_name = set(co_n)
-        unique_company_url = set(co_url)
+            company_names.append(company['employer']['name'])
+            company_urls.append(company['employer']['url'])
+        unique_company_name = set(company_names)
+        unique_company_url = set(company_urls)
         for company in unique_company_name:
             for url in unique_company_url:
                 company_list.append({'companies': {'company_name': company, 'company_url': url}})

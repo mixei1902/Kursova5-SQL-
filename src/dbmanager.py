@@ -47,10 +47,10 @@ class DBManager:
                                f'ORDER BY vacancy_id')
         return result
 
-    # def get_vacancies_with_keyword(self):
-    #     """Получает список всех вакансий, в названии которых содержатся переданные в метод слова, например python."""
-    #     result = self.execute_(f"SELECT * "
-    #                            f"FROM vacancies "
-    #                            f"WHERE vacancy_name LIKE '%разработчик%'")
-    #     return result
+    def get_vacancies_with_keyword(self, word: str):
+        """Получает список всех вакансий, в названии которых содержатся переданные в метод слова, например python."""
+        result = self.execute_(f"SELECT * "
+                               f"FROM vacancies "
+                               f"WHERE vacancy_name LIKE '%{word}%'")
+        return result
 
